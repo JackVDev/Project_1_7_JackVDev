@@ -36,7 +36,7 @@ def stage_mult(value=10, stage=0):
         stage_den += abs(stage)
     # Multiplier is calculated by the fraction
     mult = stage_num / stage_den
-    return (value * mult)
+    return round(value * mult)
 
 # Code needed: User input
 # Code needed: Do the math
