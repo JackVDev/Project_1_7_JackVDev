@@ -1,4 +1,9 @@
-
+"""_summary_
+    PokeDamageCalc.py
+    Jack Verdin
+    The main file for my Project 1 program. The program acts as a simplified Pokemon damage calculator.
+    6/23/2026
+"""
 
 # Function needed: Damage Calculator
 def damage_calc():
