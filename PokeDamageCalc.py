@@ -1,7 +1,4 @@
-# Function needed: Type effectiveness calc
-def type_calc(type_atk, type_def1, type_def2):
-    #Unfinished
-    return 1
+
 
 # Function needed: Damage Calculator
 def damage_calc():
