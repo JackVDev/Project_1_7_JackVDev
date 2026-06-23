@@ -19,3 +19,9 @@ type_chart = [
     [1, 0.5, 0.5, 0.5, 1, 2, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 0.5, 2],
     [1, 0.5, 1, 1, 1, 1, 2, 0.5, 1, 1, 1, 1, 1, 1, 2, 2, 0.5, 1]
     ]
+
+def type_calc(type_atk=18, type_def=18):
+    if type_atk == 18 or type_def == 18:
+        return 1
+    else:
+        return type_chart[type_atk][type_def]
