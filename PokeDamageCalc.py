@@ -15,6 +15,15 @@ def type_message(type_mult):
 
 # Function: Stage Multiplier
 def stage_mult(value=10, stage=0):
+    """Multiplies a value using pokemon's stage system
+
+    Args:
+        value (int, optional): the input value of the function. Defaults to 10.
+        stage (int, optional): the stage multiplier, an int between -6 and 6. Defaults to 0.
+
+    Returns:
+        int: the output value, given as a rounded int
+    """
     # Stages must be an integer
     stage = round(stage)
     # A stage of 0 results in no change to value, so it's skipped early
