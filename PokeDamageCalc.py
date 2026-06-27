@@ -12,8 +12,21 @@ def damage_calc():
 
 # Function needed? Type effectiveness to message
 def type_message(type_mult):
-    #Unfinished
-    return "Unfinished Message"
+    match type_mult:
+        case 0:
+            return "It had no effect!"
+        case 0.25:
+            return "It's barely effective!"
+        case 0.5:
+            return "It's not very effective."
+        case 1:
+            return "It's regularly effective"
+        case 2:
+            return "It's supereffective!"
+        case 4:
+            return "It's extremely effective!"
+        case _:
+            return "Unexpected Value"
 
 # Function: Stage Multiplier
 def stage_mult(value=10, stage=0):
