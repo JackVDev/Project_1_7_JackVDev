@@ -126,3 +126,10 @@ else:
     # Code needed: Output message to terminal
     print(f"On a low roll, this move will deal {damage_min} damage, or {percentof(damage_min, given_hp)}% of the opposing Pokemon's health.")
     print(f"On a high roll, this move will deal {damage_max} damage, or {percentof(damage_max, given_hp)}% of the opposing Pokemon's health.")
+
+    num_hits = 0
+    hp_left = given_hp
+    while hp_left > 0:
+        num_hits += 1
+        hp_left -= damage_min
+    print(f"When landing all low rolls, it takes {num_hits} hit(s) to KO the opponent from full health.")
