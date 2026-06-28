@@ -118,7 +118,10 @@ print(f"With an Defence stat of {given_def} at stage {given_defst},\nthe defendi
 print(f"Using a {typechart.type_list[given_typeatk]}-type move against a {typechart.type_list[given_typedef1]}/{typechart.type_list[given_typedef2]} Pokemon results in a type multiplier of {total_typemult}")
 print(type_message(total_typemult))
 
-damage_min = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 0.85)
-damage_max = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 1)
-damage_crit = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 1.5)
-# Code needed: Output message to terminal
+if total_typemult == 0:
+    print("This move will not deal any damage!")
+else:
+    damage_min = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 0.85)
+    damage_max = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 1)
+    damage_crit = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 1.5)
+    # Code needed: Output message to terminal
