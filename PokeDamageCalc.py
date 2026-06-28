@@ -192,3 +192,5 @@ else:
         num_hits += 1
         hp_left -= damage_max
     print(f"When landing all high rolls, it takes {num_hits} hit(s) to KO the opponent from full health.")
+
+input("Input anything to close program.")
