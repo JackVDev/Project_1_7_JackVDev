@@ -5,10 +5,18 @@
     6/23/2026
 """
 
+import typechart
+
 # Function needed: Damage Calculator
-def damage_calc():
-    #Unfinished
-    return 1
+def damage_calc(basepower=100, total_atk=100, total_def=100, type_mult=1, stab=1, rand_adjust=1):
+    if type_mult == 0: return 0 # If the type mult is 0, don't bother calculating the damage
+    if basepower < 1: basepower = 1 # 1 Is the minimum for power
+    if total_atk < 1: total_atk = 1 # 1 Is the minimum for attack
+    if total_def < 1: total_def = 1 # 1 Is the minimum for defence, also avoids divide by zero error
+    final_damage = (((22 * basepower * (total_atk / total_def)) / 50) + 2) * type_mult * stab * rand_adjust
+    final_damage = round(final_damage)
+    if final_damage < 1: final_damage = 1 # 1 Is the minimum for damage dealt
+    return final_damage
 
 # Function needed? Type effectiveness to message
 def type_message(type_mult):
