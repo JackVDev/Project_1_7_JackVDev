@@ -36,6 +36,7 @@ def valid_input(message, allowed):
         string: The input given from the user, but only if it is found in the allowed list
     """
     given_value = ""
+    allowed = [str(a) for a in allowed]
     while len(given_value) < 1:
         given_value = input(message)
         if given_value not in allowed:
@@ -131,15 +132,15 @@ def stage_mult(value=10, stage=0):
 print("- Pokemon Damage Calculator -\n")
 
 # input block for stats and stages
-given_atk = int(input("Please input the attacking Pokemon's Attack stat: "))
+given_atk = int(valid_input("Please input the attacking Pokemon's Attack stat: ", list(range(1,256))))
 if given_atk < 1: given_atk = 1
-given_atkst = int(input("Please input the attacking Pokemon's Attack stage: "))
-given_def = int(input("Please input the defending Pokemon's Defence stat: "))
+given_atkst = int(valid_input("Please input the attacking Pokemon's Attack stage: ", list(range(-6,7))))
+given_def = int(valid_input("Please input the defending Pokemon's Defence stat: ", list(range(1,256))))
 if given_def < 1: given_def = 1
-given_defst = int(input("Please input the defending Pokemon's Defence stage: "))
-given_hp = int(input("Please input the defending Pokemon's max HP: "))
+given_defst = int(valid_input("Please input the defending Pokemon's Defence stage: ", list(range(-6,7))))
+given_hp = int(valid_input("Please input the defending Pokemon's max HP: ", list(range(1,512))))
 if given_hp < 1: given_hp = 1
-given_power = int(input("Please input the base power of the move used: "))
+given_power = int(valid_input("Please input the base power of the move used: ", list(range(1,256))))
 if given_power < 1: given_power = 1
 
 # input block for type-related values
