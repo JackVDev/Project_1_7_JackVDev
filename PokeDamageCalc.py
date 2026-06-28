@@ -30,7 +30,7 @@ def valid_input(message, allowed):
 
     Args:
         message (string): A message for the input() function
-        allowed (list): A list of allowed inputs
+        allowed (list/tuple): A list of allowed inputs
 
     Returns:
         string: The input given from the user, but only if it is found in the allowed list
@@ -69,7 +69,7 @@ def damage_calc(basepower=100, total_atk=100, total_def=100, type_mult=1, stab=1
 
 # Function needed? Type effectiveness to message
 def type_message(type_mult=1):
-    """_summary_
+    """Takes a type effectiveness float and returns the appropriate message.
 
     Args:
         type_mult (float/int): The input type effectiveness. Defaults to 1.
@@ -129,6 +129,8 @@ def stage_mult(value=10, stage=0):
 
 # Code needed: User input
 print("- Pokemon Damage Calculator -\n")
+
+# input block for stats and stages
 given_atk = int(input("Please input the attacking Pokemon's Attack stat: "))
 if given_atk < 1: given_atk = 1
 given_atkst = int(input("Please input the attacking Pokemon's Attack stage: "))
@@ -140,7 +142,7 @@ if given_hp < 1: given_hp = 1
 given_power = int(input("Please input the base power of the move used: "))
 if given_power < 1: given_power = 1
 
-
+# input block for type-related values
 given_typeatk = valid_input("Please input the type of the move used: ", typechart.type_list)
 given_typeatk = typechart.type_list.index(given_typeatk)
 given_typedef1 = valid_input("Please input the first type of the defending Pokemon: ", typechart.type_list)
@@ -153,15 +155,19 @@ given_stab = valid_input("Does the move used benefit from the Same Type Attack B
 if given_stab == "Y": given_stab = 1.5
 else: given_stab = 1
 
-# Code needed: Do the math
+# Calculates the total stats based on the given value and stage
 total_atk = stage_mult(given_atk, given_atkst)
 print(f"With an Attack stat of {given_atk} at stage {given_atkst},\nthe attacking Pokemon has an effective Attack stat of {total_atk}")
 total_def = stage_mult(given_def, given_defst)
 print(f"With an Defence stat of {given_def} at stage {given_defst},\nthe defending Pokemon has an effective Defence stat of {total_def}")
+
+# Outputs the type matchup info for the user
 print(f"Using a {typechart.type_list[given_typeatk]}-type move against a {typechart.type_list[given_typedef1]}/{typechart.type_list[given_typedef2]} Pokemon results in a type multiplier of {total_typemult}")
 print(type_message(total_typemult))
 
 if total_typemult == 0:
+    # If total_typemult is 0, then the move will never deal damage
+    # No need to bother calculating
     print("This move will not deal any damage!")
 else:
     damage_min = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 0.85)
@@ -170,12 +176,15 @@ else:
     print(f"On a low roll, this move will deal {damage_min} damage, or {percentof(damage_min, given_hp)}% of the opposing Pokemon's health.")
     print(f"On a high roll, this move will deal {damage_max} damage, or {percentof(damage_max, given_hp)}% of the opposing Pokemon's health.")
 
+    # Calcs number of hits for all low rolls
     num_hits = 0
     hp_left = given_hp
     while hp_left > 0:
         num_hits += 1
         hp_left -= damage_min
     print(f"When landing all low rolls, it takes {num_hits} hit(s) to KO the opponent from full health.")
+    
+    # Calcs number of hits for all high rolls
     num_hits = 0
     hp_left = given_hp
     while hp_left > 0:
