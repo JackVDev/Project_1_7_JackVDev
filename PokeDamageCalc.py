@@ -7,6 +7,16 @@
 
 import typechart
 
+# Function: While loop input validation in one function
+def valid_input(message, *allowed):
+    given_value = ""
+    while len(given_value) > 0:
+        given_value = input(message)
+        if given_value not in allowed:
+            given_value = ""
+            print("Invalid input.")
+    return given_value
+
 # Function needed: Damage Calculator
 def damage_calc(basepower=100, total_atk=100, total_def=100, type_mult=1, stab=1, rand_adjust=1):
     if type_mult == 0: return 0 # If the type mult is 0, don't bother calculating the damage
