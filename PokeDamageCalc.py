@@ -81,5 +81,18 @@ def stage_mult(value=10, stage=0):
     return round(value * mult)
 
 # Code needed: User input
+print("- Pokemon Damage Calculator -\n")
+given_atk = int(input("Please input the attacking Pokemon's Attack stat: "))
+given_atkst = int(input("Please input the attacking Pokemon's Attack stage: "))
+given_def = int(input("Please input the defending Pokemon's Defence stat: "))
+given_defst = int(input("Please input the defending Pokemon's Defence stage: "))
+given_hp = int(input("Please input the defending Pokemon's max HP: "))
+given_power = int(input("Please input the base power of the move used: "))
+given_typeatk = valid_input("Please input the type of the move used: ", typechart.type_list)
+given_typedef1 = valid_input("Please input the first type of the defending Pokemon: ", typechart.type_list)
+given_typedef2 = valid_input("Please input the second type of the defending Pokemon: ", typechart.type_list)
+given_stab = valid_input("Does the move used benefit from the Same Type Attack Bonus?(True/False) ", [True, False])
+if given_stab: given_stab = 1.5
+else: given_stab = 1
 # Code needed: Do the math
 # Code needed: Output message to terminal
