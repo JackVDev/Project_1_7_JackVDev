@@ -91,11 +91,15 @@ def stage_mult(value=10, stage=0):
 # Code needed: User input
 print("- Pokemon Damage Calculator -\n")
 given_atk = int(input("Please input the attacking Pokemon's Attack stat: "))
+if given_atk < 1: given_atk = 1
 given_atkst = int(input("Please input the attacking Pokemon's Attack stage: "))
 given_def = int(input("Please input the defending Pokemon's Defence stat: "))
+if given_def < 1: given_def = 1
 given_defst = int(input("Please input the defending Pokemon's Defence stage: "))
 given_hp = int(input("Please input the defending Pokemon's max HP: "))
+if given_hp < 1: given_hp = 1
 given_power = int(input("Please input the base power of the move used: "))
+if given_power < 1: given_power = 1
 given_typeatk = valid_input("Please input the type of the move used: ", typechart.type_list)
 given_typeatk = typechart.type_list.index(given_typeatk)
 given_typedef1 = valid_input("Please input the first type of the defending Pokemon: ", typechart.type_list)
