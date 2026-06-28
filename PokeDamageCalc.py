@@ -7,6 +7,14 @@
 
 import typechart
 
+# Function: Display a number as a percent of another number, rounded to two decimal places
+def percentof(part=10, total=10):
+    if total == 0: return 100
+    percent = part / total
+    percent *= 100
+    percent = round(percent, 2)
+    return percent
+
 # Function: While loop input validation in one function
 def valid_input(message, allowed):
     given_value = ""
