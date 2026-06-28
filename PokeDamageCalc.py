@@ -89,10 +89,14 @@ given_defst = int(input("Please input the defending Pokemon's Defence stage: "))
 given_hp = int(input("Please input the defending Pokemon's max HP: "))
 given_power = int(input("Please input the base power of the move used: "))
 given_typeatk = valid_input("Please input the type of the move used: ", typechart.type_list)
+given_typeatk = typechart.type_list.index(given_typeatk)
 given_typedef1 = valid_input("Please input the first type of the defending Pokemon: ", typechart.type_list)
+given_typedef1 = typechart.type_list.index(given_typedef1)
 given_typedef2 = valid_input("Please input the second type of the defending Pokemon: ", typechart.type_list)
+given_typedef2 = typechart.type_list.index(given_typedef2)
 given_stab = valid_input("Does the move used benefit from the Same Type Attack Bonus?(True/False) ", [True, False])
 if given_stab: given_stab = 1.5
 else: given_stab = 1
+given_typemult = given_typedef1 * given_typedef2
 # Code needed: Do the math
 # Code needed: Output message to terminal
