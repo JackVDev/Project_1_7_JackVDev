@@ -109,7 +109,7 @@ given_typedef2 = typechart.type_list.index(given_typedef2)
 given_stab = valid_input("Does the move used benefit from the Same Type Attack Bonus?(Y/N) ", ["Y", "N"])
 if given_stab == "Y": given_stab = 1.5
 else: given_stab = 1
-total_typemult = given_typedef1 * given_typedef2
+total_typemult = typechart.type_calc(given_typeatk, given_typedef1) * typechart.type_calc(given_typeatk, given_typedef2)
 # Code needed: Do the math
 total_atk = stage_mult(given_atk, given_atkst)
 print(f"With an Attack stat of {given_atk} at stage {given_atkst},\nthe attacking Pokemon has an effective Attack stat of {total_atk}")
