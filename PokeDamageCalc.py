@@ -123,5 +123,6 @@ if total_typemult == 0:
 else:
     damage_min = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 0.85)
     damage_max = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 1)
-    damage_crit = damage_calc(given_power, total_atk, total_def, total_typemult, given_stab, 1.5)
     # Code needed: Output message to terminal
+    print(f"On a low roll, this move will deal {damage_min} damage, or {percentof(damage_min, given_hp)}% of the opposing Pokemon's health.")
+    print(f"On a high roll, this move will deal {damage_max} damage, or {percentof(damage_max, given_hp)}% of the opposing Pokemon's health.")
