@@ -133,3 +133,9 @@ else:
         num_hits += 1
         hp_left -= damage_min
     print(f"When landing all low rolls, it takes {num_hits} hit(s) to KO the opponent from full health.")
+    num_hits = 0
+    hp_left = given_hp
+    while hp_left > 0:
+        num_hits += 1
+        hp_left -= damage_max
+    print(f"When landing all high rolls, it takes {num_hits} hit(s) to KO the opponent from full health.")
