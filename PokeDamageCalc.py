@@ -8,9 +8,9 @@
 import typechart
 
 # Function: While loop input validation in one function
-def valid_input(message, *allowed):
+def valid_input(message, allowed):
     given_value = ""
-    while len(given_value) > 0:
+    while len(given_value) < 1:
         given_value = input(message)
         if given_value not in allowed:
             given_value = ""
