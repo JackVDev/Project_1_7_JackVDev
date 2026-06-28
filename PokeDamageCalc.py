@@ -94,9 +94,13 @@ given_typedef1 = valid_input("Please input the first type of the defending Pokem
 given_typedef1 = typechart.type_list.index(given_typedef1)
 given_typedef2 = valid_input("Please input the second type of the defending Pokemon: ", typechart.type_list)
 given_typedef2 = typechart.type_list.index(given_typedef2)
-given_stab = valid_input("Does the move used benefit from the Same Type Attack Bonus?(True/False) ", [True, False])
-if given_stab: given_stab = 1.5
+given_stab = valid_input("Does the move used benefit from the Same Type Attack Bonus?(Y/N) ", ["Y", "N"])
+if given_stab == "Y": given_stab = 1.5
 else: given_stab = 1
 given_typemult = given_typedef1 * given_typedef2
 # Code needed: Do the math
+total_atk = stage_mult(given_atk, given_atkst)
+print(f"With an Attack stat of {given_atk} at stage {given_atkst},\nthe attacking Pokemon has an effective Attack stat of {total_atk}")
+total_def = stage_mult(given_def, given_defst)
+print(f"With an Defence stat of {given_def} at stage {given_defst},\nthe defending Pokemon has an effective Defence stat of {total_def}")
 # Code needed: Output message to terminal
